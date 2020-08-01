@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 import {nanoid} from "nanoid";
@@ -21,9 +21,35 @@ const GOODS_ITEMS = [
 ]
 
 const App = () => {
+  const [order, setOrder] = useState({
+    orders: [
+      {name: 'Hamburger', price: 150, count: 0, id: nanoid()},
+      {name: 'Cheeseburger', price: 165, count: 0, id: nanoid()},
+      {name: 'Potato Fries', price: 60, count: 0, id: nanoid()},
+      {name: 'Coffee', price: 80, count: 0, id: nanoid()},
+      {name: 'Tea', price: 40, count: 0, id: nanoid()},
+      {name: 'Cola', price: 35, count: 0, id: nanoid()},
+    ],
+    totalPrice: 0,
+  });
+
+  const addOrder = name => {
+    const index = GOODS_ITEMS.findIndex(g => g.name === name);
+    const orders = [...order.orders];
+    orders[index].count++;
+    let totalPrice = order.totalPrice + orders[index].price;
+    setOrder({
+      orders,
+      totalPrice
+    });
+  };
+
   return (
     <div className="App">
-      <Goods goods={GOODS_ITEMS}/>
+      <Goods
+          goods={GOODS_ITEMS}
+          onGoodsClick={addOrder}
+      />
     </div>
   );
 }

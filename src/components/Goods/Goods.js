@@ -10,6 +10,7 @@ const Goods = props => {
                 name={item.name}
                 price={item.price}
                 image={item.image}
+                onGoodsClick={() => props.onGoodsClick(item.name)}
             />)}
         </div>
     );
