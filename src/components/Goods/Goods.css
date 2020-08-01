@@ -1,6 +1,11 @@
+.goods-wrapper {
+    width: 50%;
+    padding: 15px;
+}
+
 .goods {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 1px solid #000;
 }
+
