@@ -3,6 +3,8 @@
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid #000;
+    transform: scale(0);
+    animation: orderShow 0.8s forwards;
 }
 
 .order__txt {
@@ -17,4 +19,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+@keyframes orderShow {
+    100% {
+        transform: scale(1);
+    }
 }
