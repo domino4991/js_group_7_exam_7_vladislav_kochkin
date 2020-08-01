@@ -8,7 +8,7 @@
     border-bottom: 5px solid #00897b;
     margin-bottom: 15px;
     border-radius: 15px;
-    box-shadow: 0 2px 3px 1px rgba(0, 137, 123, 0.5);
+    box-shadow: 0 1px 3px 1px rgba(0, 137, 123, 0.5);
     transform: scale(0);
     animation: productShow 0.8s forwards;
     transition: 0.5s;
@@ -44,14 +44,6 @@
 
 .product__name {
     font-size: 16px;
-}
-
-.product__img {
-    transition: 0.5s;
-}
-
-.product:hover .product__img {
-    transform: rotate(720deg);
 }
 
 @keyframes productShow {
