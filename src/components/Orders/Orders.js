@@ -14,6 +14,7 @@ const Orders = props => {
                             name={item.name}
                             count={item.count}
                             price={item.price}
+                            onRemoveClick={() => props.onRemoveClick(item.id)}
                         />
                     } else {
                         return null;

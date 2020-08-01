@@ -12,7 +12,7 @@ const Goods = props => {
                     name={item.name}
                     price={item.price}
                     image={item.image}
-                    onGoodsClick={() => props.onGoodsClick(item.name)}
+                    onGoodsClick={() => props.onGoodsClick(item.id)}
                 />)}
             </div>
         </div>
