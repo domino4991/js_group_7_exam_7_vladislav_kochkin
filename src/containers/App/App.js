@@ -10,6 +10,8 @@ import {GiCoffeeCup} from 'react-icons/gi';
 import {FaCoffee} from 'react-icons/fa';
 import {GiWaterBottle} from 'react-icons/gi';
 import Goods from "../../components/Goods/Goods";
+import Orders from "../../components/Orders/Orders";
+import TotalPrice from "../../components/TotalPrice/TotalPrice";
 
 const GOODS_ITEMS = [
   {name: 'Hamburger', price: 150, image: <FaHamburger />, id: nanoid()},
@@ -46,10 +48,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <Goods
-          goods={GOODS_ITEMS}
-          onGoodsClick={addOrder}
-      />
+      <div className="container">
+        <Orders
+            orders={order.orders}
+            totalPrice={<TotalPrice totalPrice={order.totalPrice}/>}/>
+        <Goods
+            goods={GOODS_ITEMS}
+            onGoodsClick={addOrder}
+        />
+      </div>
     </div>
   );
 }
