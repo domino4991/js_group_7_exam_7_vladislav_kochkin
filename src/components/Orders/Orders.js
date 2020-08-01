@@ -7,7 +7,7 @@ const Orders = props => {
         <div className="orders-wrapper">
             <h4>Заказ: </h4>
             <div className="orders">
-                {props.orders.map(item => {
+                {props.products.map(item => {
                     if(item.count > 0) {
                         return <Order
                             key={item.id}

@@ -15,8 +15,8 @@ import Orders from "../../components/Orders/Orders";
 import TotalPrice from "../../components/TotalPrice/TotalPrice";
 
 const App = () => {
-  const [order, setOrder] = useState({
-    orders: [
+  const [goods, setOrder] = useState({
+    products: [
       {name: 'Hamburger', price: 150, count: 0, image: <FaHamburger />, id: nanoid()},
       {name: 'Cheeseburger', price: 165, count: 0, image: <GiHamburger />, id: nanoid()},
       {name: 'Potato Fries', price: 60, count: 0, image: <GiPotato />, id: nanoid()},
@@ -28,26 +28,26 @@ const App = () => {
   });
 
   const addOrder = id => {
-    const index = order.orders.findIndex(g => g.id === id);
-    const orders = [...order.orders];
-    orders[index].count++;
-    let totalPrice = order.totalPrice + orders[index].price;
+    const index = goods.products.findIndex(g => g.id === id);
+    const products = [...goods.products];
+    products[index].count++;
+    let totalPrice = goods.totalPrice + products[index].price;
     setOrder({
-      orders,
+      products,
       totalPrice
     });
   };
 
   const removeOrder = id => {
-    const index = order.orders.findIndex(g => g.id === id);
-    const orders = [...order.orders];
-    let totalPrice = order.totalPrice;
-    if(orders[index].count !== 0) {
-      orders[index].count--;
-      totalPrice = order.totalPrice - orders[index].price;
+    const index = goods.products.findIndex(g => g.id === id);
+    const products = [...goods.products];
+    let totalPrice = goods.totalPrice;
+    if(products[index].count !== 0) {
+      products[index].count--;
+      totalPrice = goods.totalPrice - products[index].price;
     }
     setOrder({
-      orders,
+      products,
       totalPrice
     })
   }
@@ -56,12 +56,12 @@ const App = () => {
     <div className="App">
       <div className="container">
         <Orders
-            orders={order.orders}
-            totalPrice={<TotalPrice totalPrice={order.totalPrice}/>}
+            products={goods.products}
+            totalPrice={<TotalPrice totalPrice={goods.totalPrice}/>}
             onRemoveClick={removeOrder}
         />
         <Goods
-            goods={order.orders}
+            goods={goods.products}
             onGoodsClick={addOrder}
         />
       </div>
